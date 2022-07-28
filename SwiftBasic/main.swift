@@ -1,19 +1,18 @@
 import Foundation
 
 //연습 문제
-//입력받은 문자열 중 랜덤의 문자를 출력하는 함수
+//소수 판별
 
-@discardableResult
-func randomCharacter(temp : String) -> Character {
-//    let arrTemp = Array(temp)
-//    let randomIndex = Int.random(in: 0 ..< arrTemp.count)
-//    print(randomIndex)
-//    
-    let randomChar = temp.randomElement()!
+func isPrimeNumber(num : Int) -> () {
+    for i in 2 ..< num {
+        if (num % i == 0) {
+            print("소수가 아닙니다.")
+            return
+        }
+    }
     
-    return randomChar
+    print("소수입니다.")
 }
 
-var inputData = readLine()!
-
-print(randomCharacter(temp: inputData))
+var inputData = Int(readLine()!)!
+isPrimeNumber(num: inputData)
