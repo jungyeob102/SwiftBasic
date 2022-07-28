@@ -1,12 +1,17 @@
 import Foundation
 
-//함수의 가변매개변수
-func abc(numbers: Double...) {
-    //가변 매개변수는 Array(배열) 형태로 저장 됨
-    for number in numbers {
-        print(number)
-    }
+//inout 키워드를 사용하면 메모리 주소를 참조
+//상수가 아닌 변수로 저장
+func swap (a: inout Int, b: inout Int)
+{
+    let temp = a
+    a = b
+    b = temp
 }
 
-//함수를 다른 변수에 담을 수 있음
-var temp: (Double...) -> Void = abc(numbers:)
+var temp1: Int = 1
+var temp2: Int = 2
+swap(a: &temp1, b: &temp2)
+
+print(temp1)
+print(temp2)
