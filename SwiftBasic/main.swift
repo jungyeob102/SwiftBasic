@@ -4,14 +4,11 @@ import Foundation
 //팩토리얼
 
 func factorial(_ num : Int) -> (Int) {
-
-    var result = 1
-
-    for i in 1 ... num {
-        result *= i
+    print(num)
+    if num <= 1 {
+        return 1
     }
-    
-    return result
+    return num * factorial(num - 1)
 }
 
-print(factorial(5))
+print(factorial(10))
