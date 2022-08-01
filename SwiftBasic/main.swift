@@ -1,29 +1,25 @@
 import Foundation
 
-var isBreak: Bool = true
-while isBreak {
-    let input: String = readLine()!
+var arr: [Int] = []
+var maxNum: Int = 0
+var maxNumIndex: Int = 0
+
+for _ in 1 ... 9 {
+    let comp: String = readLine()!
     
-    if Int(input) != nil {
-        let result: Int = Int(input)!
-    
-        if result == 0 {
-            print("바위")
-            isBreak = false
-        }
-        else if result == 1 {
-            print("가위")
-            isBreak = false
-        }
-        else if result == 2 {
-            print("보")
-            isBreak = false
-        }
-        else {
-            print("다시 입력하시오.")
-        }
-    }
-    else {
-        print("숫자를 입력해주세요.")
+    if Int(comp) != nil {
+        arr.append(Int(comp)!)
     }
 }
+
+let count = arr.count
+
+for i in 0 ..< count {
+    if arr[i] > maxNum {
+        maxNum = arr[i]
+        maxNumIndex = i + 1
+    }
+}
+
+print(maxNum)
+print(maxNumIndex)
