@@ -1,94 +1,72 @@
 import Foundation
 
-//MARK: 프로퍼티(property)
-struct Sample {
-    //속성 (attribute)
-    @available(swift 3.0.2)
+struct MyPos {
+    var x = 0
+    var y = 0
     
-    //변수 (variable)
-    var age: Int = 28
-    var name: String = "홍길동"
-}
-
-//MARK: 저장 프로퍼티
-struct Sample_1 {
-    var age: Int = 28
-    var name: String = "홍길동"
-}
-
-//MARK: 지연 프로퍼티
-class Sample_class {
-    init() {
-        print("생성")
+    mutating func setMyPos(pos_x: Int, pos_y: Int) {
+        self.x = pos_x
+        self.y = pos_y
+    }
+    
+    mutating func setOrgPos(pos_x: Int, pos_y: Int) {
+        self.x = pos_x
+        self.y = pos_y
     }
 }
 
-class Sample_2 {
-    lazy var data = Sample_class()
-}
-
-var temp: Sample_2 = Sample_2()
-
-//MARK: 연산 프로퍼티
-class Sample_3 {
-    var result: Int = 5
+func DFS(myPos: inout MyPos, map: inout Array<Array<Int>>, visited_map: inout Array<Array<Bool>>, isFirst: Bool) {
+    //처음 위치 저장
+    if isFirst {
+        myPos.setOrgPos(pos_x: myPos.x, pos_y: myPos.y)
+    }
     
-    var temp: Int {
-        get {
-            return result
-        }
-        set(newValue) {
-            result = newValue * 15
-        }
+    //첫 방문
+    visited_map[myPos.y][myPos.x] = true
+    
+    //오른쪽 탐색
+    if ((visited_map[myPos.y][myPos.x + 1] == false) && (map[myPos.y][myPos.x + 1] == 1)) {
+        myPos.setMyPos(pos_x: myPos.x + 1, pos_y: myPos.y)
+    }
+    //아래 탐색
+    else if ((visited_map[myPos.y + 1][myPos.x] == false) && (map[myPos.y + 1][myPos.x] == 1)) {
+        myPos.setMyPos(pos_x: myPos.x, pos_y: myPos.y + 1)
+    }
+    //왼쪽 탐색
+    else if ((visited_map[myPos.y][myPos.x - 1] == false) && (map[myPos.y][myPos.x - 1] == 1)) {
+        myPos.setMyPos(pos_x: myPos.x - 1, pos_y: myPos.y)
+    }
+    //위쪽 탐색
+    else if ((visited_map[myPos.y - 1][myPos.x] == false) && (map[myPos.y - 1][myPos.x] == 1)) {
+        myPos.setMyPos(pos_x: myPos.x, pos_y: myPos.y - 1)
+    }
+    
+    //안간곳이면 탐색
+    if visited_map[myPos.y][myPos.x] == false {
+        DFS(myPos: &myPos, map: &map, visited_map: &visited_map, isFirst: false)
     }
 }
 
-let sample3: Sample_3 = Sample_3()
-sample3.temp = 1
-print(sample3.temp)
+let testCase = Int(readLine()!)!
 
-//MARK: 읽기 전용 연산 프로퍼티
-class Sample_4 {
-    var x: Int = 10
-    var y: Int = 25
+for _ in 0 ..< testCase {
+    //MARK: 기본 값 설정
+    let info: Array = (readLine()!).split(separator: " ")
+    let pos_x: Int = Int(info[0])!
+    let pos_y: Int = Int(info[1])!
+    let count: Int = Int(info[2])!
     
-    var volume: Int {
-        get {
-            return x * y
-        }
+    //MARK: 기본 맵 생성
+    var map: [[Int]] = Array(repeating: Array(repeating: 0, count: pos_x), count: pos_y)
+    var visited_map: [[Bool]] = Array(repeating: Array(repeating: false, count: pos_x), count: pos_y)
+    
+    for _ in 0 ..< count {
+        let map_info: Array = (readLine()!).split(separator: " ")
+        let x: Int = Int(map_info[0])!
+        let y: Int = Int(map_info[1])!
+        
+        map[y][x] = 1
     }
+    var myPos: MyPos = MyPos()
+    DFS(myPos: &myPos, map: &map, visited_map: &visited_map, isFirst: true)
 }
-
-let sample4: Sample_4 = Sample_4()
-print(sample4.volume)
-
-//setter가 없기 때문에 값을 지정할 수 없다.
-//sample4.volume = 4
-
-
-//MARK: 타입 프로퍼티
-class StudyMember {
-    var nick: String
-    static var gender: String = "MAN"
-    
-    init(arg_nick: String) {
-        self.nick = arg_nick
-    }
-    
-    func callMyGender() {
-        print(StudyMember.gender)
-    }
-}
-
-//각각의 인스턴스 생성
-let JungYeob:StudyMember = StudyMember(arg_nick: "중엽")
-let HyunHo:StudyMember = StudyMember(arg_nick: "현호")
-let YeonSu:StudyMember = StudyMember(arg_nick: "연수")
-let BumSu:StudyMember = StudyMember(arg_nick: "범수")
-
-//StudyMember.gender = "Woman"
-
-JungYeob.callMyGender()
-HyunHo.callMyGender()
-YeonSu.callMyGender()
-BumSu.callMyGender()
