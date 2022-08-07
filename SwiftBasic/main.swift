@@ -1,14 +1,12 @@
-func solution(_ s:String) -> Bool {
-    let s_count = s.count
-    let s_arr = Array(s).map{String($0)}
-    
-    guard (s_count == 4 || s_count == 6) else {return false}
-    
-    for i in 0 ..< s_count {
-        if Int(s_arr[i]) == nil {
-            return false
-        }
+
+var dic: [String: Bool] = [:]
+
+for i in 65 ... 90 {
+    if let temp = UnicodeScalar(i) {
+        dic.updateValue(false, forKey: String(temp))
     }
-    
-    return true
 }
+
+dic["D"] = true
+
+print(dic.keys.sorted())
