@@ -1,12 +1,23 @@
-
-var dic: [String: Bool] = [:]
-
-for i in 65 ... 90 {
-    if let temp = UnicodeScalar(i) {
-        dic.updateValue(false, forKey: String(temp))
+class Owner {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
     }
 }
 
-dic["D"] = true
+enum Temp {
+    case dog(name: String, owner: Owner)
+    case cat
+}
 
-print(dic.keys.sorted())
+let man: Owner = Owner.init(name: "이중엽")
+
+var dog1: Temp = Temp.dog(name: "태식", owner: man)
+
+switch dog1 {
+case let .dog(a, b):
+    print(a)
+    print(b.name)
+case .cat: break
+}
