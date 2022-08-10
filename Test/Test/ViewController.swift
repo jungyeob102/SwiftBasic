@@ -8,12 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
-    //@IBOutlet 컴파일러에게 알려주는 attribute(속성)
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var myButton: UIButton!
+    @IBOutlet weak var firstImageView: UIImageView!
+    @IBOutlet weak var secondImageView: UIImageView!
     
+    var diceArray: [UIImage] = [#imageLiteral(resourceName: "black1"), #imageLiteral(resourceName: "black2"), #imageLiteral(resourceName: "black3"), #imageLiteral(resourceName: "black4"), #imageLiteral(resourceName: "black5"), #imageLiteral(resourceName: "black6")]
     
     //앱을 화면에 들어오면 처음 실행시키는 함수
     override func viewDidLoad() {
@@ -21,12 +20,13 @@ class ViewController: UIViewController {
         
     }
 
-    
-
-    @IBAction func buttonPressed(_ sender: UIButton) {
+    @IBAction func rollButtonTabbed(_ sender: UIButton) {
+        //첫번째 이미지뷰의 이미지를 랜덤으로 변경
+        firstImageView.image = diceArray.randomElement()
         
-        mainLabel.text = "안녕하세요"
-        
+        //두번째 이미지뷰의 이미지를 랜덤으로 변경
+        secondImageView.image = diceArray.randomElement()
     }
-
+    
+    
 }
