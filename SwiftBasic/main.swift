@@ -13,11 +13,13 @@ enum Temp {
 
 let man: Owner = Owner.init(name: "이중엽")
 
-var dog1: Temp = Temp.dog(name: "태식", owner: man)
+var dog1: Temp? = Temp.dog(name: "태식", owner: man)
 
 switch dog1 {
 case let .dog(a, b):
     print(a)
     print(b.name)
 case .cat: break
+case nil:
+    print("값 없음")
 }
