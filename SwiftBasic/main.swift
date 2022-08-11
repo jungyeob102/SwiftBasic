@@ -1,25 +1,25 @@
-class Owner {
-    var name: String
-    
-    init(name: String) {
-        self.name = name
+import Foundation
+
+var arrTemp: Array<Int> = [1,2,3,4,5,6]
+let temp = arrTemp.sorted{ $0 > $1 }
+
+
+func makeIncrementer(forIncrement amount: Int) -> (() -> Int) {
+    var runningTotal = 0
+    func incrementer() -> Int {
+        runningTotal += amount
+        return runningTotal
     }
+    return incrementer
 }
 
-enum Temp {
-    case dog(name: String, owner: Owner)
-    case cat
-}
+let incrementByTwo: (() -> Int) = makeIncrementer(forIncrement: 2)
 
-let man: Owner = Owner.init(name: "이중엽")
+let first: Int = incrementByTwo()
+print(first)
 
-var dog1: Temp? = Temp.dog(name: "태식", owner: man)
+let second: Int = incrementByTwo()
+print(second)
 
-switch dog1 {
-case let .dog(a, b):
-    print(a)
-    print(b.name)
-case .cat: break
-case nil:
-    print("값 없음")
-}
+//클로저와 함수는 참조 타입!
+//따라서 클로저와 함수를 담은 상수 또는 변수를 다른 상수 또는 변수에 할당한다면 두 상수가 모두 같은 클로저 또는 함수를 가리킨다.
