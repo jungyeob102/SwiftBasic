@@ -8,114 +8,81 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    //MARK: 속성 선언
+    
+    //MARK: 변수 선언
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
     
-    @IBOutlet weak var comImageView: UIImageView!
-    @IBOutlet weak var myImageView: UIImageView!
+    var comNum: Int = Int.random(in: 1 ... 10)
     
-    @IBOutlet weak var comChoiceLabel: UILabel!
-    @IBOutlet weak var myChoiceLabel: UILabel!
+    @IBOutlet weak var stack1: UIStackView!
+    @IBOutlet weak var stack2: UIStackView!
     
-    var rpsImageArray: [UIImage] = [#imageLiteral(resourceName: "rock"), #imageLiteral(resourceName: "scissors"), #imageLiteral(resourceName: "paper")]
-    
-    var comChoice: Rps = Rps(rawValue: Int.random(in: 0...2))!
-    var myChoice: Rps = Rps.rock
+    //버튼
+    @IBOutlet weak var resetButton: UIButton!
     
     //MARK: 앱 첫 실행 함수
     //앱을 화면에 들어오면 처음 실행시키는 함수
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //1) 첫번째/두번째 이미지뷰에 준비 이미지를 띄워야 함
-        comImageView.image = UIImage(named: "ready.png")
-        myImageView.image = UIImage(named: "ready.png")
-        //2) 첫번째/두번째 레이블에 "준비" 문자열을 띄워야 함
+        mainLabel.text = "선택하세요."
+        numberLabel.text = ""
         
-        comChoiceLabel.text = "준비"
-        myChoiceLabel.text = "준비"
     }
 
     //MARK: 메서드 선언
-    @IBAction func rpsButtonTabbed(_ sender: UIButton) {
-        //가위/ 바위/ 보를 선택해서 데이터 저장
-        //guard let title = sender.currentTitle else { return }
-        
-        let title = sender.currentTitle!
-        
-        switch title {
-        case "가위":
-            myChoice = .scissors
-        case "바위":
-            myChoice = .rock
-        case "보":
-            myChoice = .paper
-        default:
-            break
-        }
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        // 1) 버튼의 숫자를 가져옴
+        // 2) numberLabel이 입력한 숫자에 따라 변화
+        // 3) 선택한 숫자를 임의의 변수에 저장
+//        if sender.isEnabled {
+            numberLabel.text = sender.currentTitle
+//        }
     }
     
-    @IBAction func selectButtonTabbed(_ sender: UIButton) {
-        comChoice = Rps(rawValue: Int.random(in: 0...2))!
-        // 1) 컴퓨터가 랜덤으로 선택한 이미지를 이미지뷰에 표시
-        // 2) 컴퓨터가 랜덤으로 선택한 이미지를 레이블에 표시
-        switch comChoice {
-        case .rock:
-            comImageView.image = UIImage(named: "rock.png")
-            comChoiceLabel.text = "바위"
-        case .scissors:
-            comImageView.image = UIImage(named: "scissors.png")
-            comChoiceLabel.text = "가위"
-        case .paper:
-            comImageView.image = UIImage(named: "paper.png")
-            comChoiceLabel.text = "보"
+    @IBAction func selectButtonTapped(_ sender: UIButton) {
+        //1) 컴퓨터의 숫자와 내가 입력한 숫자를 비교 UP / DOWN / BINGO (mainLabel)
+        guard let num = numberLabel.text else { return }
+        guard let myNum = Int(num) else {
+            mainLabel.text = "선택된 숫자가 없습니다."
+            return
         }
         
-        // 3) 내가 랜덤으로 선택한 이미지를 이미지뷰에 표시
-        // 4) 내가 랜덤으로 선택한 이미지를 레이블에 표시
-        switch myChoice {
-        case .rock:
-            myImageView.image = UIImage(named: "rock.png")
-            myChoiceLabel.text = "바위"
-        case .scissors:
-            myImageView.image = UIImage(named: "scissors.png")
-            myChoiceLabel.text = "가위"
-        case .paper:
-            myImageView.image = UIImage(named: "paper.png")
-            myChoiceLabel.text = "보"
+        if comNum > myNum {
+            mainLabel.text = "Up"
         }
-        
-        
-        // 5) 컴퓨터가 선택한 정보와 비교하여 승패판단 후 표시
-        if comChoice == myChoice {
-            mainLabel.text = "비겼다!"
-        }
-        else if comChoice == .rock && myChoice == .paper {
-            mainLabel.text = "이겼다!"
-        }
-        else if comChoice == .paper && myChoice == .scissors {
-            mainLabel.text = "이겼다!"
-        }
-        else if comChoice == .scissors && myChoice == .rock {
-            mainLabel.text = "이겼다!"
+        else if comNum < myNum {
+            mainLabel.text = "Down"
         }
         else {
-            mainLabel.text = "졌다..."
+            mainLabel.text = "Bingo"
+            setButtonEnabled(false)
+        }
+        
+    }
+    
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        mainLabel.text = "선택하세요."
+        numberLabel.text = ""
+        
+        comNum = Int.random(in: 1 ... 10)
+        setButtonEnabled(true)
+    }
+    
+    func setButtonEnabled(_ enable: Bool) {
+        let stackCount = stack1.arrangedSubviews.count
+        for idx in (0 ..< stackCount) {
+            let stackViewItem = stack1.arrangedSubviews[idx] as! UIButton
+            stackViewItem.isEnabled = enable
+        }
+        
+        let stackCount2 = stack2.arrangedSubviews.count
+        for idx in (0 ..< stackCount2) {
+            let stackViewItem = stack2.arrangedSubviews[idx] as! UIButton
+            stackViewItem.isEnabled = enable
         }
     }
-    
-    
-    @IBAction func resetButtonTabbed(_ sender: UIButton) {
-        //1) 첫번째/두번째 이미지뷰에 준비 이미지를 띄워야 함
-        comImageView.image = UIImage(named: "ready.png")
-        myImageView.image = UIImage(named: "ready.png")
-        //2) 첫번째/두번째 레이블에 "준비" 문자열을 띄워야 함
-        
-        comChoiceLabel.text = "준비"
-        myChoiceLabel.text = "준비"
-        
-        mainLabel.text = "선택하세요"
-    }
-    
 }
