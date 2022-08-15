@@ -1,18 +1,25 @@
 import Foundation
 
-let numbers: [Int] = [0,1,2,3,4]
+var comChoice = Int.random(in: 1 ... 100)
+var myChoice = 0
 
-var doubleNumbers: [Int] = numbers.map({ (number: Int) -> Int in return number * 2})
-print(doubleNumbers)
-
-var doubleNumbers2: [Int] = numbers.map({return $0 * 2})
-print(doubleNumbers2)
-
-var doubleNumbers3: [Int] = numbers.map() {return $0 * 2}
-print(doubleNumbers3)
-
-var doubleNumbers4: [Int] = numbers.map() {$0 * 2}
-print(doubleNumbers4)
-
-var doubleNumbers5: [Int] = numbers.map{$0 * 2}
-print(doubleNumbers5)
+while true {
+    let userInput = readLine()
+    
+    if let input = userInput {
+        if let number = Int(input) {
+            myChoice = number
+        }
+    }
+    
+    if comChoice > myChoice {
+        print("up")
+    }
+    else if comChoice < myChoice {
+        print("down")
+    }
+    else {
+        print("bingo")
+        break
+    }
+}
