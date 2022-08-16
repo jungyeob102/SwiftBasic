@@ -1,25 +1,17 @@
 import Foundation
 
-var comChoice = Int.random(in: 1 ... 100)
-var myChoice = 0
+struct User {
+    var id: String
 
-while true {
-    let userInput = readLine()
-    
-    if let input = userInput {
-        if let number = Int(input) {
-            myChoice = number
-        }
+    init(id: String) {
+        self.id = id
     }
     
-    if comChoice > myChoice {
-        print("up")
-    }
-    else if comChoice < myChoice {
-        print("down")
-    }
-    else {
-        print("bingo")
-        break
+    mutating func changeID(newID: String) {
+        self.id = newID
     }
 }
+
+var DoDo: User = User(id: "DoDo")
+//DoDo / DoDoCopy는 아직까진 같은 메모리를 참조
+var DoDoCopy: User = DoDo
