@@ -1,6 +1,7 @@
 import Foundation
 
-struct User {
+//값타입
+struct UserStruct {
     var id: String
 
     init(id: String) {
@@ -12,6 +13,32 @@ struct User {
     }
 }
 
-var DoDo: User = User(id: "DoDo")
-//DoDo / DoDoCopy는 아직까진 같은 메모리를 참조
-var DoDoCopy: User = DoDo
+//참조타입
+class UserClass {
+    var id: String
+
+    init(id: String) {
+        print("init")
+        self.id = id
+    }
+    
+    func changeID(newID: String) {
+        print("호출 됐어욤")
+        self.id = newID
+    }
+}
+
+class UserData: UserClass {
+    
+    override init(id: String) {
+        print("init_child")
+        super.init(id: id)
+    }
+    
+    override func changeID(newID: String) {
+        print(newID)
+    }
+}
+
+let temp: UserData = UserData(id: "234")
+temp.changeID(newID: "123")
