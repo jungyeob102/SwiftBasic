@@ -64,8 +64,8 @@
 				AC06418028A34BB400BCC3BB /* SceneDelegate.swift */,
 				AC06418228A34BB400BCC3BB /* TodoListViewController.swift */,
 				AC9B164428AB5D18005FD147 /* Todo.swift */,
-				AC06418428A34BB400BCC3BB /* Main.storyboard */,
 				AC70521728AE170300C002C3 /* Storage.swift */,
+				AC06418428A34BB400BCC3BB /* Main.storyboard */,
 				AC06418728A34BB500BCC3BB /* Assets.xcassets */,
 				AC06418928A34BB500BCC3BB /* LaunchScreen.storyboard */,
 				AC06418C28A34BB500BCC3BB /* Info.plist */,
@@ -89,7 +89,7 @@
 			dependencies = (
 			);
 			name = TodoList;
-			productName = Test;
+			productName = TodoList;
 			productReference = AC06417B28A34BB400BCC3BB /* TodoList.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -297,7 +297,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92Y6UC7Q5M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = TodoList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -326,7 +326,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92Y6UC7Q5M;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = TodoList/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
