@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXv-TP-3sd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Settings-->
         <scene sceneID="Oe1-87-S6u">
             <objects>
                 <viewController id="Aoa-SX-ZuY" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <viewLayoutGuide key="safeArea" id="HUv-Sp-M7b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="xmX-pb-Sk2"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="xmX-pb-Sk2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q16-wY-D5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="775" y="835"/>
         </scene>
-        <!--Item 1-->
+        <!--Tasks-->
         <scene sceneID="x0P-5G-B0G">
             <objects>
                 <viewController id="tL8-Mq-URK" customClass="TodoListViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,6 +62,7 @@
                                                     <state key="normal" image="circle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                     </state>
+                                                    <state key="selected" image="checkmark.circle" catalog="system"/>
                                                     <connections>
                                                         <action selector="checkButtonTapped:" destination="AEi-YM-rAo" eventType="touchUpInside" id="1D9-th-TLN"/>
                                                     </connections>
@@ -133,6 +134,9 @@
                                         <constraint firstItem="xCj-Wv-c0K" firstAttribute="centerY" secondItem="i8g-dl-fnD" secondAttribute="centerY" id="5et-2e-cRO"/>
                                         <constraint firstItem="xCj-Wv-c0K" firstAttribute="leading" secondItem="i8g-dl-fnD" secondAttribute="leadingMargin" constant="20" id="efZ-8G-t2C"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="sectionTitleLabel" destination="xCj-Wv-c0K" id="wNe-Ny-CDl"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="tL8-Mq-URK" id="IjM-UV-jJu"/>
@@ -145,7 +149,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-M2-DF7">
                                         <rect key="frame" x="15" y="13" width="283" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Oy-6J-kaB">
                                         <rect key="frame" x="308" y="12.5" width="45" height="35"/>
@@ -153,17 +157,27 @@
                                             <constraint firstAttribute="width" constant="45" id="LeI-Ih-dlf"/>
                                             <constraint firstAttribute="height" constant="35" id="aqt-Mv-21y"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="todayButton"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="today">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="isTodayButtonTapped:" destination="tL8-Mq-URK" eventType="touchUpInside" id="0A3-BD-vFk"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJQ-sl-RjK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJQ-sl-RjK">
                                         <rect key="frame" x="363" y="12.5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="M4Z-jg-SMY"/>
                                             <constraint firstAttribute="width" constant="35" id="lIg-UA-Spx"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="35"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addTaskButtonTapped:" destination="tL8-Mq-URK" eventType="touchUpInside" id="oRH-cS-wSp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,19 +198,28 @@
                         <constraints>
                             <constraint firstItem="GDS-Fq-n9I" firstAttribute="trailing" secondItem="RAa-2w-8sK" secondAttribute="trailing" id="3s8-7O-4GC"/>
                             <constraint firstItem="Yzx-K8-97s" firstAttribute="leading" secondItem="RAa-2w-8sK" secondAttribute="leading" id="EHq-cr-uSw"/>
-                            <constraint firstItem="GDS-Fq-n9I" firstAttribute="bottom" secondItem="RAa-2w-8sK" secondAttribute="bottom" id="Irn-Tp-vUK"/>
+                            <constraint firstItem="RAa-2w-8sK" firstAttribute="bottom" secondItem="GDS-Fq-n9I" secondAttribute="bottom" id="Irn-Tp-vUK"/>
                             <constraint firstItem="GDS-Fq-n9I" firstAttribute="top" secondItem="RAa-2w-8sK" secondAttribute="top" id="iUf-0B-GfR"/>
                             <constraint firstItem="Yzx-K8-97s" firstAttribute="trailing" secondItem="RAa-2w-8sK" secondAttribute="trailing" id="muR-Xx-a5O"/>
-                            <constraint firstItem="Yzx-K8-97s" firstAttribute="bottom" secondItem="RAa-2w-8sK" secondAttribute="bottom" id="nmT-M3-MgL"/>
+                            <constraint firstItem="RAa-2w-8sK" firstAttribute="bottom" secondItem="Yzx-K8-97s" secondAttribute="bottom" id="nmT-M3-MgL"/>
                             <constraint firstItem="GDS-Fq-n9I" firstAttribute="leading" secondItem="RAa-2w-8sK" secondAttribute="leading" id="xjS-6l-XUU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="2El-4V-wb4"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" id="2El-4V-wb4"/>
                     <connections>
-                        <outlet property="collectionView" destination="GDS-Fq-n9I" id="cad-al-XMy"/>
+                        <outlet property="addButton" destination="qJQ-sl-RjK" id="U9J-55-Vi6"/>
+                        <outlet property="collectionView" destination="GDS-Fq-n9I" id="vO5-SQ-ijk"/>
+                        <outlet property="inputTextField" destination="eIn-M2-DF7" id="NXK-pq-xcP"/>
+                        <outlet property="inputViewBottom" destination="nmT-M3-MgL" id="Fdu-ct-M37"/>
+                        <outlet property="isTodayButton" destination="1Oy-6J-kaB" id="yic-hv-4Tz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D0t-mu-oWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mxc-me-WQo">
+                    <connections>
+                        <action selector="tapBG:" destination="tL8-Mq-URK" id="WRp-0k-3uy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-349" y="825"/>
         </scene>
@@ -221,7 +244,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
