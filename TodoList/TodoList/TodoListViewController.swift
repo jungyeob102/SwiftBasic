@@ -24,27 +24,30 @@ class TodoListViewController: UIViewController {
 }
 
 extension TodoListViewController: UICollectionViewDataSource{
-    
+
     //섹션 별 아이템이 몇개를 사용할지 결정 (UICollectionViewDataSource 프로토콜)
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
+        return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
+        return
     }
-    
+
     //헤더뷰
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
+
         switch kind {
         case UICollectionView.elementKindSectionHeader:
+            //withReuseIdentifier -> TodoLsitHeaderView의 identifier
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TodoListHeaderView", for: indexPath) as? TodoListHeaderView else{
                 return UICollectionReusableView()
             }
-            
+
             return header
-            
+
         default:
             return UICollectionReusableView()
         }
@@ -52,5 +55,5 @@ extension TodoListViewController: UICollectionViewDataSource{
 }
 
 class TodoListHeaderView: UICollectionReusableView {
-    
+
 }
