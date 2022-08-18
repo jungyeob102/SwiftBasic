@@ -29,7 +29,7 @@
         <!--Item 1-->
         <scene sceneID="x0P-5G-B0G">
             <objects>
-                <viewController id="tL8-Mq-URK" customClass="TodoListViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tL8-Mq-URK" customClass="TodoListViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OMz-Qu-6ut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
                                         <size key="customSize" width="414" height="90"/>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoListHeaderView" id="i8g-dl-fnD" customClass="TodoListHeaderView" customModule="Test" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoListHeaderView" id="i8g-dl-fnD" customClass="TodoListHeaderView" customModule="TodoList" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
