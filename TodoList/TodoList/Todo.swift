@@ -36,6 +36,7 @@ struct Todo: Codable, Equatable {
     
     ///**Struct Todo 비교 연산자**
     ///- note: 상수인 id를 통해 같은지 비교 - 각각의 todo는 unique id 값을 가지고 있음
+    ///- note: equatable 프로토콜을 상속받았기에 정의 가능
     ///- parameters:
     ///     - lhs: left hand side - 좌변 - 첫번째 매개변수
     ///     - rhs: right hand side - 우변 - 두번째 매개변수

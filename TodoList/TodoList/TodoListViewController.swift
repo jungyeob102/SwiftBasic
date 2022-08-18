@@ -23,37 +23,77 @@ class TodoListViewController: UIViewController {
     
 }
 
-extension TodoListViewController: UICollectionViewDataSource{
-
-    //섹션 별 아이템이 몇개를 사용할지 결정 (UICollectionViewDataSource 프로토콜)
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        return
-    }
-
-    //헤더뷰
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            //withReuseIdentifier -> TodoLsitHeaderView의 identifier
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TodoListHeaderView", for: indexPath) as? TodoListHeaderView else{
-                return UICollectionReusableView()
-            }
-
-            return header
-
-        default:
-            return UICollectionReusableView()
-        }
-    }
-}
-
 class TodoListHeaderView: UICollectionReusableView {
 
+}
+
+//MARK: - Class - TodoListCell
+///**Class TodoListCell**
+///- note: TodoListCell - Todo 객체(cell)들을 담는 리스트 뷰
+///- note: UICollectionViewCell
+///- authors: 이중엽
+class TodoListCell: UICollectionViewCell {
+    
+    //MARK: Class - TodoListCell - Property
+    //Button
+    @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    //Label
+    @IBOutlet weak var descriptionLabel: UILabel!
+    //View
+    @IBOutlet weak var strikeThroughView: UIView!
+    //View Constraint - 넓이
+    @IBOutlet weak var strikeThroughWidth: NSLayoutConstraint!
+    
+    //Closure - handler
+    var doneButtonTapHandler: ((Bool) -> Void)?
+    var deleteButtonTapHandler: (() -> Void)?
+    
+    //MARK: Class - TodoListCell - Method
+    
+    ///**StrikeThrough 노출 함수**
+    ///- note: param show를 통해 Strike Through의 넓이를 descriptionLabel의 넓이로 변경
+    ///- parameters:
+    ///     - show: strike Through를 노출할지 여부 (Bool 타입)
+    ///- returns:
+    private func showStrikeThrough(_ show: Bool) {
+        if show {
+            strikeThroughWidth.constant = descriptionLabel.bounds.width
+        } else {
+            strikeThroughWidth.constant = 0
+        }
+    }
+    
+    ///**체크 버튼 액션 함수**
+    ///- note: 토글 형식으로 check Button의 체크 여부를 파악하고 그 외 동작들을 실행한다.
+    /// 1. strike Though를 노출할지 여부를 결정
+    /// 2. description Label 투명도 결정
+    /// 3. delete Button 노출 결정
+    /// 4. DoneButtonTapHandler 실행 여부
+    ///- parameters:
+    ///- returns:
+    @IBAction func checkButtonTapped(_ sender: UIButton) {
+        //토글 형식
+        //현재 눌렸으면(true) -> 취소 (false)
+        //현재 안눌렸으면(false) -> 체크 (true)
+        checkButton.isSelected = !checkButton.isSelected
+        
+        let isDone = checkButton.isSelected
+        showStrikeThrough(isDone)
+        //alpha? 투명도를 얘기하는 듯
+        descriptionLabel.alpha = isDone ? 0.2 : 1
+        //isDone이 true이면 노출 (is Hidden은 false일 때 노출)
+        deleteButton.isHidden = !isDone
+        doneButtonTapHandler?(isDone)
+    }
+    
+    ///**삭제 버튼 액션 함수**
+    ///- note: deleteButtonTapHandler를 통해 동작 여부 전달
+    ///- parameters:
+    ///- returns:
+    @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        deleteButtonTapHandler?()
+    }
+    
+    
 }

@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q16-wY-D5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="901"/>
+            <point key="canvasLocation" x="775" y="835"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="x0P-5G-B0G">
@@ -44,7 +44,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AEi-YM-rAo">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoListCell" id="AEi-YM-rAo" customClass="TodoListCell" customModule="TodoList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AON-Dp-JuQ">
@@ -59,9 +59,12 @@
                                                     </constraints>
                                                     <color key="tintColor" systemColor="systemPinkColor"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="selectButton" image="circle" catalog="system">
+                                                    <state key="normal" image="circle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="checkButtonTapped:" destination="AEi-YM-rAo" eventType="touchUpInside" id="1D9-th-TLN"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻 Weekly iOS Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faW-nr-FD3">
                                                     <rect key="frame" x="71" y="34.5" width="278" height="21"/>
@@ -77,9 +80,12 @@
                                                     </constraints>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="cancelButton" image="xmark.circle.fill" catalog="system">
+                                                    <state key="normal" image="xmark.circle.fill" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteButtonTapped:" destination="AEi-YM-rAo" eventType="touchUpInside" id="jTk-FI-tsk"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-Jd-oIC">
                                                     <rect key="frame" x="65" y="44.5" width="250" height="1"/>
@@ -103,6 +109,13 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="90"/>
+                                        <connections>
+                                            <outlet property="checkButton" destination="N0W-vk-hJ7" id="SJS-Bo-PYa"/>
+                                            <outlet property="deleteButton" destination="5CT-xu-bqp" id="d7P-xh-arX"/>
+                                            <outlet property="descriptionLabel" destination="faW-nr-FD3" id="Q5a-dO-36p"/>
+                                            <outlet property="strikeThroughView" destination="ciF-Jd-oIC" id="Nkd-1h-rRj"/>
+                                            <outlet property="strikeThroughWidth" destination="03L-FO-hW3" id="SjC-fA-kz1"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TodoListHeaderView" id="i8g-dl-fnD" customClass="TodoListHeaderView" customModule="TodoList" customModuleProvider="target">
