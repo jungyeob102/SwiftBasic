@@ -221,7 +221,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-349" y="825"/>
+            <point key="canvasLocation" x="-304" y="828"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bIu-UO-GxZ">

@@ -20,7 +20,7 @@ struct Todo: Codable, Equatable {
     
     //MARK: - Struct - Todo - Method
     ///**Struct Todo 비교 연산자**
-    ///- note: 상수인 id를 통해 같은지 비교 - 각각의 todo는 unique id 값을 가지고 있음
+    ///- note: 상수인 id를 통해 같은지 비교 - –que id 값을 가지고 있음
     ///- note: 값타입인 구조체는 인스턴스 메소드 내부에서 프로퍼티를 변경할 수 없기 때문에 mutating 키워드 입력
     ///- parameters:
     ///     - lhs: left hand side - 좌변 - 첫번째 매개변수
@@ -111,7 +111,7 @@ class TodoManager {
     ///- parameters:
     ///- returns:
     func saveTodo() {
-        Storage.store(todos, to: .documents, as: "todo.json")
+        Storage.store(todos, to: .documents, as: "todos.json")
     }
     
     ///**Class TodoManager  method**

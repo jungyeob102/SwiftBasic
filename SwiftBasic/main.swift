@@ -13,10 +13,23 @@ struct UserStruct {
         self.id = id
     }
     
+    //구조체(값 타입)라서 내부 인스턴스를 바꾸지 못한다
+    //두가지 의견
+    //속도가 빠르다 -> 메모리 타고 이동 heap
+    //구조체 불변객체 (변하지 않는 )
+    //나 값 바꿀꺼야 알려주는거에요 (불변 하기 싫어 가변할래 )
     mutating func changeID(newID: String) {
         self.id = newID
     }
 }
+
+var user: UserStruct = UserStruct(id: "123") // user 인스턴스
+user.id = "234" // user 인스턴스 (삭제 -> 생성)
+user.changeID(newID: "345")
+
+
+var temp = user //독립적인 인스턴스가 생성
+
 
 //참조타입
 class UserClass {
@@ -39,8 +52,8 @@ class UserData: UserClass {
     }
 }
 
-let temp: UserData = UserData(id: "234")
-temp.changeID(newID: "123")
+//let temp: UserData = UserData(id: "234")
+//temp.changeID(newID: "123")
 
 
 /*============================================
@@ -130,6 +143,41 @@ class Child: Student {
     
     func cry() {
         print("아!!!!!!!")
+    }
+}
+
+//-----------------------------------------
+
+struct Student1 {
+
+    var name: String
+    var number: Int
+}
+
+
+
+class School {
+
+    var number: Int = 0
+    var students: [Student1] = [Student1]()
+
+    func addStudent(name: String) {
+        let student: Student1 = Student1(name: name, number: self.number)
+        self.students.append(student)
+        self.number += 1
+    }
+
+    func addStudents(names: String...) {
+        for name in names {
+            self.addStudent(name: name)
+        }
+    }
+
+    subscript(index: Int = 0) -> Student1? {
+        if index < self.number {
+            return self.students[index]
+        }
+        return nil
     }
 }
 
