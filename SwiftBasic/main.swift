@@ -150,8 +150,8 @@ class Child: Student {
 
 struct Student1 {
 
-    var name: String
-    var number: Int
+    var name: String //
+    var number: Int // 인덱스
 }
 
 
@@ -174,10 +174,43 @@ class School {
     }
 
     subscript(index: Int = 0) -> Student1? {
-        if index < self.number {
-            return self.students[index]
+        get{
+            if index < self.number {
+                return self.students[index]
+            }
+            return nil
         }
-        return nil
+        set {
+            guard var newStudent: Student1 = newValue else {
+                return
+            }
+            
+            var number: Int = index
+            
+            // number,index = 3 / self.number = 2
+            // 배열을 차례대로 담기위해서
+            if index > self.number {
+                number = self.number
+                //number = 2
+                self.number += 1
+                //self.number = 3
+            }
+            
+//            newStudent.number = number  -> 3
+            self.students[number] = newStudent
+        }
+        
     }
 }
 
+let hongikHigh: School = School()
+
+hongikHigh.addStudent(name: "이중엽") // name : 이중엽, number : 0
+hongikHigh.addStudent(name: "김연수") // name : 김연수, number : 1
+var temp1: Student1 = Student1(name: "temp1", number: 3)
+//setter
+//hongikHigh[3] = temp1
+//temp1 => newValue
+//
+//newStudent = temp1
+//index == 3
