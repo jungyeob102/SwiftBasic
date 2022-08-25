@@ -214,3 +214,14 @@ var temp1: Student1 = Student1(name: "temp1", number: 3)
 //
 //newStudent = temp1
 //index == 3
+
+//-----------------------------------------
+
+
+extension School {
+    func open() {
+        print("개강")
+    }
+}
+
+hongikHigh.open()
