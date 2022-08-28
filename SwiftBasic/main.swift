@@ -225,3 +225,30 @@ extension School {
 }
 
 hongikHigh.open()
+
+extension Int {
+    enum Kind {
+        case zero, positive, nagative
+    }
+    
+    var kind: Kind {
+        switch self {
+        case 0:
+            return Kind.zero
+        case let x where x > 0 :
+            return Kind.positive
+        default:
+            return Kind.nagative
+        }
+    }
+}
+
+let a = 1
+print(a.kind)
+let tempX = a.kind
+print(tempX)
+print(type(of: tempX))
+
+protocol multiple {
+    var a: Int { get }
+}
