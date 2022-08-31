@@ -300,3 +300,28 @@ let yourMp3: Mp3 = Mp3()
 
 //업 캐스팅
 let controller: remote = yourMp3 as remote
+
+class Aclass {
+    struct Bstruct {
+        enum Cenum {
+            case aCase   // 열거형에는 케이스 필요
+            case bCase
+            
+            struct Dstruct {
+                
+            }
+        }
+        var name: Cenum
+    }
+}
+
+
+// 타입 선언과 인스턴스의 생성
+
+let aClass: Aclass = Aclass()
+
+let bStruct: Aclass.Bstruct = Aclass.Bstruct(name: .bCase)
+
+let cEnum: Aclass.Bstruct.Cenum = Aclass.Bstruct.Cenum.aCase     // 열거형은 케이스선택
+
+let dStruct: Aclass.Bstruct.Cenum.Dstruct = Aclass.Bstruct.Cenum.Dstruct()
