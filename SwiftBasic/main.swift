@@ -325,3 +325,16 @@ let bStruct: Aclass.Bstruct = Aclass.Bstruct(name: .bCase)
 let cEnum: Aclass.Bstruct.Cenum = Aclass.Bstruct.Cenum.aCase     // 열거형은 케이스선택
 
 let dStruct: Aclass.Bstruct.Cenum.Dstruct = Aclass.Bstruct.Cenum.Dstruct()
+
+
+
+var aSave: () -> () = { print("출력") }
+
+func aSaveFunc(closure: () -> () ) {
+//    aSave = closure
+    closure()
+}
+
+aSaveFunc { print("다르게 출력") }
+
+
