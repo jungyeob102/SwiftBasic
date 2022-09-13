@@ -37,6 +37,10 @@
 		ACB23E0728CF58DC0097C8DB /* Missing U In The Raining Day.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF128CF58DC0097C8DB /* Missing U In The Raining Day.mp3 */; };
 		ACB23E0828CF58DC0097C8DB /* Getsomerest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF228CF58DC0097C8DB /* Getsomerest.mp3 */; };
 		ACB23E0928CF58DC0097C8DB /* Chamomile Tea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF328CF58DC0097C8DB /* Chamomile Tea.mp3 */; };
+		ACF55D8328D044A1003E71DA /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8228D044A1003E71DA /* TrackManager.swift */; };
+		ACF55D8528D0452D003E71DA /* SimplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8428D0452D003E71DA /* SimplePlayer.swift */; };
+		ACF55D8728D0465F003E71DA /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8628D0465F003E71DA /* Track.swift */; };
+		ACF55D8928D04E46003E71DA /* Extension+AVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8828D04E46003E71DA /* Extension+AVPlayerItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		ACB23DF128CF58DC0097C8DB /* Missing U In The Raining Day.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Missing U In The Raining Day.mp3"; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Missing U In The Raining Day.mp3"; sourceTree = "<group>"; };
 		ACB23DF228CF58DC0097C8DB /* Getsomerest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Getsomerest.mp3; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Getsomerest.mp3"; sourceTree = "<group>"; };
 		ACB23DF328CF58DC0097C8DB /* Chamomile Tea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Chamomile Tea.mp3"; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Chamomile Tea.mp3"; sourceTree = "<group>"; };
+		ACF55D8228D044A1003E71DA /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
+		ACF55D8428D0452D003E71DA /* SimplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayer.swift; sourceTree = "<group>"; };
+		ACF55D8628D0465F003E71DA /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		ACF55D8828D04E46003E71DA /* Extension+AVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+AVPlayerItem.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,7 @@
 		ACB23DD628CD26B70097C8DB /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				ACF55D8428D0452D003E71DA /* SimplePlayer.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -139,6 +148,9 @@
 		ACB23DD728CD26C40097C8DB /* Track */ = {
 			isa = PBXGroup;
 			children = (
+				ACF55D8828D04E46003E71DA /* Extension+AVPlayerItem.swift */,
+				ACF55D8228D044A1003E71DA /* TrackManager.swift */,
+				ACF55D8628D0465F003E71DA /* Track.swift */,
 			);
 			path = Track;
 			sourceTree = "<group>";
@@ -273,6 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB23DC628CD263C0097C8DB /* HomeViewController.swift in Sources */,
+				ACF55D8528D0452D003E71DA /* SimplePlayer.swift in Sources */,
+				ACF55D8328D044A1003E71DA /* TrackManager.swift in Sources */,
+				ACF55D8728D0465F003E71DA /* Track.swift in Sources */,
+				ACF55D8928D04E46003E71DA /* Extension+AVPlayerItem.swift in Sources */,
 				ACB23DC228CD263C0097C8DB /* AppDelegate.swift in Sources */,
 				ACB23DC428CD263C0097C8DB /* SceneDelegate.swift in Sources */,
 				ACB23DDD28CD36710097C8DB /* TrackCollectionViewCell.swift in Sources */,
