@@ -18,6 +18,8 @@ struct Track {
         self.artist = artist
         self.albumName = albumName
         self.artwork = artwork
+        
+//        print("track 생성")
     }
 }
 
@@ -36,5 +38,7 @@ struct Album {
     init(title: String, tracks: [Track]) {
         self.title = title
         self.tracks = tracks
+        
+//        print("앨범 생성")
     }
 }

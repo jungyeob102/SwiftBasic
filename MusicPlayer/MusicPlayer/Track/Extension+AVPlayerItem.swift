@@ -21,6 +21,7 @@ extension AVPlayerItem {
         var trackArtwork: UIImage?
         
         for metadata in metadataList {
+            
             if let title = metadata.title {
                 trackTitle = title
             }
@@ -47,11 +48,6 @@ extension AVPlayerItem {
 }
 
 extension AVMetadataItem {
-    var temp: String? {
-        print(commonKey?.rawValue ?? "비어있음")
-        return commonKey?.rawValue ?? nil
-    }
-    
     var title: String? {
         guard let key = commonKey?.rawValue, key == "title" else {
             return nil

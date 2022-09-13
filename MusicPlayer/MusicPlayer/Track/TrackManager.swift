@@ -18,6 +18,7 @@ class TrackManager {
     
     //TODO: 트랙 생성자 구현하기
     init() {
+//        print("트랙 매니저 생성")
         let tracks = loadTracks()
         self.tracks = tracks
         self.albums = loadAlbums(tracks: tracks)
@@ -26,10 +27,8 @@ class TrackManager {
     
     //TODO: 트랙 로드하기
     func loadTracks() -> [AVPlayerItem] {
-        
+//        print("트랙 로드")
         let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil) ?? []
-        
-        print(urls)
         
         let items = urls.map { AVPlayerItem(url: $0) }
         
@@ -38,7 +37,7 @@ class TrackManager {
     
     //TODO: 인덱스에 맞는 트랙 로드하기
     func track(at index: Int) -> Track? {
-        
+//        print("인덱스에 맞는 트랙 로드")
         let playerItem: AVPlayerItem = tracks[index]
         let track: Track? = playerItem.convertToTrack()
         
@@ -47,6 +46,7 @@ class TrackManager {
     
     //TODO: 앨범 로딩 메소드 구현
     func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
+//        print("앨범 로딩")
         //convertToTrack의 return값이 nil이 될 수도 있기 때문에 compactMap을 사용해준다.
         let trackList: [Track] = tracks.compactMap { $0.convertToTrack() }
         let albumDics = Dictionary(grouping: trackList) { $0.albumName }

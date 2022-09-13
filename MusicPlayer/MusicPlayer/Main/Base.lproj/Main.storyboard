@@ -82,17 +82,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-Oi-Nri" userLabel="Thumbnail Image View">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Xr-f8S">
+                                            <rect key="frame" x="35" y="90" width="305" height="200"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="cardTapped:" destination="cvr-7B-5c0" eventType="touchUpInside" id="cgw-FU-Ion"/>
+                                            </connections>
+                                        </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9P-Oi-Nri" userLabel="Thumbnail Image View">
                                             <rect key="frame" x="35" y="90" width="305" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="FGh-Ic-Z6u"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Xr-f8S">
-                                            <rect key="frame" x="35" y="90" width="305" height="200"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain"/>
-                                        </button>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="joQ-dA-04L">
                                             <rect key="frame" x="295" y="250" width="35" height="34"/>
                                             <color key="tintColor" systemColor="systemPinkColor"/>
