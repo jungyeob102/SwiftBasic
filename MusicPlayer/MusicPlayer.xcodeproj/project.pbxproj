@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC3544E928D2D80800F8C332 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3544E828D2D80800F8C332 /* PlayerViewController.swift */; };
+		AC3544EB28D2E2B700F8C332 /* DefaultStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3544EA28D2E2B700F8C332 /* DefaultStyle.swift */; };
 		ACB23DC228CD263C0097C8DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23DC128CD263C0097C8DB /* AppDelegate.swift */; };
 		ACB23DC428CD263C0097C8DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23DC328CD263C0097C8DB /* SceneDelegate.swift */; };
 		ACB23DC628CD263C0097C8DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB23DC528CD263C0097C8DB /* HomeViewController.swift */; };
@@ -37,6 +39,7 @@
 		ACB23E0728CF58DC0097C8DB /* Missing U In The Raining Day.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF128CF58DC0097C8DB /* Missing U In The Raining Day.mp3 */; };
 		ACB23E0828CF58DC0097C8DB /* Getsomerest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF228CF58DC0097C8DB /* Getsomerest.mp3 */; };
 		ACB23E0928CF58DC0097C8DB /* Chamomile Tea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACB23DF328CF58DC0097C8DB /* Chamomile Tea.mp3 */; };
+		ACEE6BE728D2C98500497C4A /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEE6BE628D2C98500497C4A /* Player.storyboard */; };
 		ACF55D8328D044A1003E71DA /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8228D044A1003E71DA /* TrackManager.swift */; };
 		ACF55D8528D0452D003E71DA /* SimplePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8428D0452D003E71DA /* SimplePlayer.swift */; };
 		ACF55D8728D0465F003E71DA /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF55D8628D0465F003E71DA /* Track.swift */; };
@@ -44,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC3544E828D2D80800F8C332 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		AC3544EA28D2E2B700F8C332 /* DefaultStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStyle.swift; sourceTree = "<group>"; };
 		ACB23DBE28CD263C0097C8DB /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB23DC128CD263C0097C8DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACB23DC328CD263C0097C8DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 		ACB23DF128CF58DC0097C8DB /* Missing U In The Raining Day.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Missing U In The Raining Day.mp3"; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Missing U In The Raining Day.mp3"; sourceTree = "<group>"; };
 		ACB23DF228CF58DC0097C8DB /* Getsomerest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Getsomerest.mp3; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Getsomerest.mp3"; sourceTree = "<group>"; };
 		ACB23DF328CF58DC0097C8DB /* Chamomile Tea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Chamomile Tea.mp3"; path = "../../../../클론코딩/IOS_Clone_App-main/AppleMusicStApp/AppleMusicStApp/Resources/Chamomile Tea.mp3"; sourceTree = "<group>"; };
+		ACEE6BE628D2C98500497C4A /* Player.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Player.storyboard; sourceTree = "<group>"; };
 		ACF55D8228D044A1003E71DA /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		ACF55D8428D0452D003E71DA /* SimplePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePlayer.swift; sourceTree = "<group>"; };
 		ACF55D8628D0465F003E71DA /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -140,7 +146,9 @@
 		ACB23DD628CD26B70097C8DB /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				ACEE6BE628D2C98500497C4A /* Player.storyboard */,
 				ACF55D8428D0452D003E71DA /* SimplePlayer.swift */,
+				AC3544E828D2D80800F8C332 /* PlayerViewController.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 		ACB23DD828CD26CD0097C8DB /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				AC3544EA28D2E2B700F8C332 /* DefaultStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 				ACB23DCE28CD263E0097C8DB /* LaunchScreen.storyboard in Resources */,
 				ACB23E0328CF58DC0097C8DB /* Sleepless.mp3 in Resources */,
 				ACB23DFC28CF58DC0097C8DB /* [ asleep ].mp3 in Resources */,
+				ACEE6BE728D2C98500497C4A /* Player.storyboard in Resources */,
 				ACB23DF628CF58DC0097C8DB /* memories (listen on spotify from 3am ep).mp3 in Resources */,
 				ACB23E0228CF58DC0097C8DB /* tranquility.mp3 in Resources */,
 				ACB23DF728CF58DC0097C8DB /* i fell in love with you one night in september..mp3 in Resources */,
@@ -286,6 +296,7 @@
 			files = (
 				ACB23DC628CD263C0097C8DB /* HomeViewController.swift in Sources */,
 				ACF55D8528D0452D003E71DA /* SimplePlayer.swift in Sources */,
+				AC3544EB28D2E2B700F8C332 /* DefaultStyle.swift in Sources */,
 				ACF55D8328D044A1003E71DA /* TrackManager.swift in Sources */,
 				ACF55D8728D0465F003E71DA /* Track.swift in Sources */,
 				ACF55D8928D04E46003E71DA /* Extension+AVPlayerItem.swift in Sources */,
@@ -293,6 +304,7 @@
 				ACB23DC428CD263C0097C8DB /* SceneDelegate.swift in Sources */,
 				ACB23DDD28CD36710097C8DB /* TrackCollectionViewCell.swift in Sources */,
 				ACB23DDB28CD302F0097C8DB /* TrackCollectionHeaderView.swift in Sources */,
+				AC3544E928D2D80800F8C332 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

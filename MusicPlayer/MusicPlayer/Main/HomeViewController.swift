@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import simd
 
 class HomeViewController: UIViewController {
 
@@ -57,16 +58,19 @@ extension HomeViewController: UICollectionViewDataSource {
             
             header.update(with: item)
             header.tapHandler = { item -> Void in
-                print("\(item.convertToTrack()?.title)")
+                let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
+                
+                guard let playerVC = playerStoryboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else { return }
+                
+                playerVC.simplePlayer.replaceCurrentItem(with: item)
+                
+                self.present(playerVC, animated: true, completion: nil)
             }
             return header
             
         default:
             return UICollectionReusableView()
         }
-        
-        
-        return UICollectionReusableView()
     }
     
 }
@@ -74,7 +78,16 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     //지정된 셀이 선택되었음을 알리는 메서드
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("곡선택")
+        
+        let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
+        
+        guard let playerVC =
+                playerStoryboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController else { return }
+        
+        let item = trackManager.tracks[indexPath.item]
+        playerVC.simplePlayer.replaceCurrentItem(with: item)
+        
+        present(playerVC, animated: true, completion: nil)
     }
 }
 
